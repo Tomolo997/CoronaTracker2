@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/sass/main.scss">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script type="text/javascript" src="/src/Longitude_Graticules_and_World_Countries_Boundaries.geojson"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script defer src="src/app.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+   <div class="app__container">
+      <div class="map__main" id="map">
+          
+      </div>
+      <div class="searial__data" >
+          <div class="data__card data__card--infected">
+            <div class="data__card--icon">
+                <svg class="data__card--svg">
+                    <use xlink:href="icons/sprite.svg#icon-sick"></use>
+                  </svg>
+            </div>
+
+            <div class="data__card--title">
+                <h2 class="data__card--h2">Infected</h2>
+            </div>
+
+            <div class="data__card--number">
+                <h1 class="data__card--h1">152000000</h1>
+            </div>
+
+          </div>
+          <div class="data__card data__card--recovered">
+            <div class="data__card--icon">
+                <svg class="data__card--svg">
+                    <use xlink:href="icons/sprite.svg#icon-fact_check"></use>
+                  </svg>
+            </div>
+
+            <div class="data__card--title">
+                <h2 class="data__card--h2">Recovered</h2>
+            </div>
+
+            <div class="data__card--number">
+                <h1 class="data__card--h1">152000000</h1>
+            </div>
+
+          </div>
+          <div class="data__card data__card--dead">
+            <div class="data__card--icon">
+                <svg class="data__card--svg">
+                    <use xlink:href="icons/sprite.svg#icon-coronavirus"></use>
+                  </svg>
+            </div>
+
+            <div class="data__card--title">
+                <h2 class="data__card--h2">Dead</h2>
+            </div>
+
+            <div class="data__card--number">
+                <h1 class="data__card--h1">152,000,000</h1>
+            </div>
+
+          </div>
+          <div class="data__card data__card--active ">
+            <div class="data__card--icon">
+                <svg class="data__card--svg">
+                    <use xlink:href="icons/sprite.svg#icon-local_hospital"></use>
+                  </svg>
+            </div>
+
+            <div class="data__card--title">
+                <h2 class="data__card--h2">Active</h2>
+            </div>
+
+            <div class="data__card--number">
+                <h1 class="data__card--h1">152000000</h1>
+            </div>
+
+          </div>
+    </div>
+
+   </div>
+</body>
+</html>
