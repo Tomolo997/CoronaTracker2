@@ -1,0 +1,250 @@
+* *::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-weight: 400;
+  background-color: #e5e7e7;
+}
+
+.app__container {
+  background-color: #e5e7e7;
+  width: 100%;
+  min-height: 150vh;
+  display: grid;
+  grid-template-columns: 5rem 1fr 1fr 1.2fr 5rem;
+  grid-template-rows: 2rem 1fr 1fr;
+  grid-gap: 10rem 5rem;
+}
+
+.map__main {
+  grid-row: 2/3;
+  grid-column: 2/4;
+  z-index: 1;
+}
+
+.leaflet-control-zoom {
+  display: none;
+}
+
+.searial__data {
+  grid-row: 2/3;
+  grid-column: 4/5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3rem 1fr 1fr;
+  grid-gap: 2rem 2rem;
+}
+
+.processData {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  text-align: center;
+}
+
+.data__whereFrom {
+  position: relative;
+  top: -2rem;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.data__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.data__card--infected {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  background-color: #2231f6;
+}
+.data__card--recovered {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  background-color: #04d39f;
+}
+.data__card--dead {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  background-color: #fa5c7c;
+}
+.data__card--active {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  background-color: #ffc107;
+}
+.data__card--icon {
+  align-self: flex-start;
+  position: relative;
+  top: 3rem;
+  left: 3rem;
+}
+.data__card--svg {
+  width: 9rem;
+  height: 9rem;
+  fill: white;
+}
+.data__card--title {
+  align-self: flex-start;
+  position: relative;
+  top: 1.5rem;
+  left: 3rem;
+}
+.data__card--h2 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 100;
+}
+.data__card--number {
+  position: relative;
+  top: -2rem;
+}
+.data__card--h1 {
+  font-size: 3.2rem;
+  color: white;
+  font-weight: 100;
+}
+
+.leaflet-interactive {
+  fill: #fcefba;
+  opacity: 1;
+}
+
+.legend_container {
+  position: relative;
+  z-index: 1000;
+  top: 60%;
+  left: 2%;
+  width: 70px;
+  height: 190px;
+  border-radius: 5px;
+  background-color: #f4f6f6;
+}
+
+.legend {
+  position: relative;
+  left: 12%;
+  top: 10px;
+  width: 15px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.legend__color {
+  width: 100%;
+  height: 15%;
+  border: 1px solid black;
+  background-color: blanchedalmond;
+}
+.legend__color::after {
+  display: block;
+  width: 50px;
+  height: 20px;
+  position: relative;
+  left: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+.legend__number0-05::after {
+  content: "0 - 0.5";
+  display: block;
+  text-align: center;
+  width: 50px;
+  height: 20px;
+}
+.legend__number05-1::after {
+  content: "0.5 - 1";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number1-15::after {
+  content: "1 - 1.5";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number15-2::after {
+  content: "1.5 - 2";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number2-25::after {
+  content: "2 - 2.5";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number25-3::after {
+  content: "2,5 - 3";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number3-35::after {
+  content: "3 - 3.5";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number35-4::after {
+  content: "3.5 - 4";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__number4-6::after {
+  content: "4 - 6";
+  display: block;
+  width: 50px;
+  height: 20px;
+}
+.legend__title {
+  font-size: 1.2rem;
+  position: relative;
+  left: 5px;
+  top: 5px;
+}
+
+.legend__color-1 {
+  background-color: #fcefba;
+}
+.legend__color-2 {
+  background-color: #fbe19c;
+}
+.legend__color-3 {
+  background-color: #fbc67f;
+}
+.legend__color-4 {
+  background-color: #fbac74;
+}
+.legend__color-5 {
+  background-color: #fa8067;
+}
+.legend__color-6 {
+  background-color: #e85c5e;
+}
+.legend__color-7 {
+  background-color: #ce4a65;
+}
+.legend__color-8 {
+  background-color: #a34a65;
+}
+.legend__color-9 {
+  background-color: #641b31;
+}
+
+/*# sourceMappingURL=/main.2026268b.css.map */

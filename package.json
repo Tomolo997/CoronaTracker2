@@ -13,6 +13,12 @@
     "sass": "^1.32.0"
   },
   "dependencies": {
+    "country-code-lookup": "0.0.18",
+    "country-from-iso2": "^1.0.1",
+    "country-iso-3-to-2": "^1.1.0",
+    "country-reverse-geocoding": "^0.2.2",
+    "i18n-iso-countries": "^6.4.0",
+    "model.js": "0.0.1",
     "regenerator-runtime": "^0.13.7"
   }
 }
