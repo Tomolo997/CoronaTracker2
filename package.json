@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist"
+    "build": "parcel build index.html  ./dist"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "parcel-bundler": "^1.12.4",
     "sass": "^1.32.0"
   },
   "dependencies": {
