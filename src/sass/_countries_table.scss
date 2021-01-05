@@ -1,0 +1,36 @@
+.countries__div {
+  grid-row: 3/4;
+  grid-column: 2/5;
+  display: flex;
+  flex-direction: column;
+}
+
+.countries__card {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  background-color: white;
+}
+.countries__card--input {
+  display: flex;
+  align-items: center;
+}
+
+.country__span {
+  font-size: 2rem;
+}
+
+.countries__card--input > div {
+  height: 100%;
+  width: 16.67%;
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country--input {
+  background-color: rgb(165, 91, 91);
+}

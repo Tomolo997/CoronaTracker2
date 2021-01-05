@@ -23,6 +23,6 @@ body {
   min-height: 150vh;
   display: grid;
   grid-template-columns: 5rem 1fr 1fr 1.2fr 5rem;
-  grid-template-rows: 2rem 1fr 1fr;
+  grid-template-rows: 2rem minmax(40rem, 60rem) minmax(40rem, 1fr);
   grid-gap: 10rem 5rem;
 }

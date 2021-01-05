@@ -1,8 +1,6 @@
 import { async } from "regenerator-runtime/runtime";
 import "regenerator-runtime/runtime";
-import * as model from "./model.js";
 const getCountryISO2 = require("country-iso-3-to-2");
-const lookup = require("country-code-lookup");
 var map = L.map("map", {
   center: [25, 10],
   zoom: 2,
@@ -28,27 +26,22 @@ L.geoJSON(geojsonFeature, {
     };
   },
 }).addTo(map);
-
 const state = {
   data: [],
   infected: [],
 };
-const names = [];
-const path = document.querySelectorAll("path");
+
+var filtertedgeo = geojsonFeature.features.filter((el) => el.geometry !== null);
+
+const path = Array.from(document.querySelectorAll("path"));
 
 for (let i = 0; i < path.length; i++) {
   const element = path[i];
-  const element2 = geojsonFeature.features[i].properties.ADMIN;
-  const elementISO2 = geojsonFeature.features[i].properties.ISO_A2;
+  const element2 = filtertedgeo[i].properties.ADMIN;
+  const elementISO2 = filtertedgeo[i].properties.ISO_A2;
   element.setAttribute("id", element2);
   element.setAttribute("data-code", elementISO2);
 }
-
-for (let i = 0; i < geojsonFeature.features.length; i++) {
-  const element = geojsonFeature.features[i].properties.CNTRY_NAME;
-  names.push(element);
-}
-
 const getData = async function () {
   try {
     const data2 = await fetch("https://corona-api.com/countries");
@@ -70,13 +63,12 @@ const deadNum = document.querySelector(".data__card--dead-number");
 const recoveredNum = document.querySelector(".data__card--recovered-number");
 const criticalNum = document.querySelector(".data__card--critical-number");
 const confirmedNum = document.querySelector(".data__card--confirmed-number");
-
+const countriesTable = document.querySelector(".countries__table");
 setTimeout(() => {
   for (let i = 0; i < state.data.length; i++) {
     const element = state.data[i];
     state.infected.push(element.name);
   }
-
   //get the world data of the infected, active and so on and display it ot the screen
   let sumDeaths = 0;
   let sumCritical = 0;
@@ -142,6 +134,36 @@ setTimeout(() => {
       element.style.fill = "#641b31";
     }
   }
+
+  function countriesTableFunc() {
+    let html = state.data.map((el) => {
+      return `<div class="countries__card countries__card--input">
+  <div class="country__name"><span class="country__span country__span-name">${
+    el.name
+  }</span></div>
+  <div class="country__deathRate"><span class="country__span country__span-deathRate">${
+    Number(el.latest_data.calculated.death_rate).toFixed(3) || 0
+  }</span></div>
+  <div class="country__infected"><span class="country__span country__span-infected">${
+    el.latest_data.confirmed
+  }</span></div>
+  <div class="country__dead"><span class="country__span country__span-dead">${
+    el.latest_data.deaths
+  }</span></div>
+  <div class="country__critical"><span class="country__span country__span-critical">${
+    el.latest_data.critical
+  }</span></div>
+  <div class="country__confirmed"><span class="country__span country__span-recovered">${
+    el.latest_data.recovered
+  }</span></div>
+</div>`;
+    });
+
+    const yea = html.join("");
+    countriesTable.insertAdjacentHTML("beforeend", yea);
+  }
+  countriesTableFunc();
+  // element.insertAdjacentHTML(position, text);
 }, 140);
 //data from corona tracek
 
@@ -165,4 +187,13 @@ map.addEventListener("click", function (e) {
   confirmedNum.textContent = numberWithCommas(
     countryFoundInArray.latest_data.confirmed
   );
+});
+
+//table loading
+
+const filterName = document.querySelector(".country__name--filter")
+  .parentElement;
+
+filterName.addEventListener("click", function (e) {
+  console.log();
 });
